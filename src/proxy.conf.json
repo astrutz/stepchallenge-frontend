@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://handsome-petra-kickathon-de3bbbf4.koyeb.app/",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "debug"
+  }
+}

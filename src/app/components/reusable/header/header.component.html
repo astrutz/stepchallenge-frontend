@@ -1,0 +1,71 @@
+<nav
+  class="bg-gradient-to-r from-primary-400 to-primary-300 dark:from-primary-400 dark:to-primary-500 border-gray-200 border-b-2">
+  <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="img/logo.png" class="h-12 md:h-16" alt="Flowbite Logo" />
+      <span class="self-center text-3xl font-semibold whitespace-nowrap text-white">Kickathon</span>
+    </a>
+    <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <button
+        type="button"
+        id="user-menu-button"
+        aria-expanded="false"
+        data-dropdown-toggle="user-dropdown"
+        data-dropdown-placement="bottom">
+        @if (userService.isAuthenticated()) {
+          <img
+            class="w-10 h-10 rounded-full border-2 border-gray-600"
+            [src]="userService.currentUser?.imageUrl ?? '/img/logo.png'"
+            alt="user photo" />
+        } @else {
+          <button
+            [routerLink]="userService.isAuthenticated() ? null : '/login'"
+            [queryParams]="userService.isAuthenticated() ? null : { url: this.router.url }"
+            type="button"
+            class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+            Login
+          </button>
+        }
+      </button>
+      <!-- Dropdown menu -->
+      <div
+        class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+        id="user-dropdown">
+        @if (userService.isAuthenticated()) {
+          <div class="px-4 py-3">
+            <div class="block font-semibold text-sm text-gray-900 dark:text-white">
+              {{ userService.currentUser?.name }}
+            </div>
+            @if (userService.currentUser?.scores?.billo) {
+              <div class="text-xs text-gray-900 dark:text-white">
+                Punkte: {{ userService!.currentUser!.scores!.billo ?? '' }}
+              </div>
+            }
+            @if (userService.currentUser?.scores?.elo) {
+              <div class="text-xs text-gray-900 dark:text-white">
+                Elo: {{ userService!.currentUser!.scores!.elo ?? '' }}
+              </div>
+            }
+          </div>
+          <ul class="py-2" aria-labelledby="user-menu-button">
+            <li>
+              <a
+                routerLink="/userprofile"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                >Profil</a
+              >
+            </li>
+
+            <li>
+              <button
+                (click)="onLogout()"
+                class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                Logout
+              </button>
+            </li>
+          </ul>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

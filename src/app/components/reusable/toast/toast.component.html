@@ -1,0 +1,40 @@
+<div class="relative" [ngClass]="{ hidden: isHidden }">
+  <div
+    id="toast-top-left"
+    class="absolute flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x rtl:divide-x-reverse divide-gray-200 rounded-lg shadow top-5 left-5 dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800"
+    role="alert">
+    @if (state === 'success') {
+      <svg
+        class="w-6 h-6 text-primary-600 dark:text-primary-300"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24">
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 11.917 9.724 16.5 19 7.5" />
+      </svg>
+    } @else if (state === 'error') {
+      <svg
+        class="w-6 h-6 text-red-600 dark:text-red-500"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24">
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="2"
+          d="m6 6 12 12m3-6a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+    }
+    <div class="ps-4 text-sm font-normal">{{ message }}</div>
+  </div>
+</div>

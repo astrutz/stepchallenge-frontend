@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Noto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(/font/NotoSans-Light.ttf) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Noto';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(/font/NotoSans-Medium.ttf) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Noto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/font/NotoSans-Regular.ttf) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Noto';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/font/NotoSans-SemiBold.ttf) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Noto';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/font/NotoSans-Bold.ttf) format('woff2');
+  }
+}
