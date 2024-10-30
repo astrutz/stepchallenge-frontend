@@ -3,7 +3,7 @@ import { Game } from '../../../data/game.data';
 import { DataService } from '../../../services/data.service';
 
 @Component({
-  selector: 'kickathon-fixture',
+  selector: 'stepchallenge-fixture',
   standalone: true,
   imports: [],
   templateUrl: './fixture.component.html',

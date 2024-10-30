@@ -1,10 +1,10 @@
 @if (userService.isAuthenticated() && userService.currentUser) {
   @if (formState === 'success') {
-    <kickathon-toast state="success" message="Name erfolgreich geändert"></kickathon-toast>
+    <stepchallenge-toast state="success" message="Name erfolgreich geändert"></stepchallenge-toast>
   } @else if (formState === 'error') {
-    <kickathon-toast
+    <stepchallenge-toast
       state="error"
-      message="Es ist ein Fehler aufgetreten: {{ errors }}"></kickathon-toast>
+      message="Es ist ein Fehler aufgetreten: {{ errors }}"></stepchallenge-toast>
   }
   <div class="flex flex-row justify-center mt-4 md:mt-8">
     <div
@@ -87,7 +87,7 @@
               </label>
             } @else {
               <div class="w-full h-32 md:h-64">
-                <kickathon-loading-spinner></kickathon-loading-spinner>
+                <stepchallenge-loading-spinner></stepchallenge-loading-spinner>
               </div>
             }
           </div>

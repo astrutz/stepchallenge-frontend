@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://handsome-petra-kickathon-de3bbbf4.koyeb.app/",
+    "target": "https://handsome-petra-stepchallenge-de3bbbf4.koyeb.app/",
     "secure": true,
     "changeOrigin": true,
     "pathRewrite": {

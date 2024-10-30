@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'kickathon-toast',
+  selector: 'stepchallenge-toast',
   standalone: true,
   imports: [NgClass],
   templateUrl: './toast.component.html',

@@ -4,7 +4,7 @@ import { DataService } from '../../../services/data.service';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'kickathon-curve',
+  selector: 'stepchallenge-curve',
   standalone: true,
   imports: [NgClass],
   templateUrl: './curve.component.html',

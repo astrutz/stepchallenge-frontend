@@ -8,7 +8,7 @@ import { LoadingSpinnerComponent } from '../../reusable/loading-spinner/loading-
 import {UserService} from "../../../services/user.service";
 
 @Component({
-  selector: 'kickathon-leaderboard',
+  selector: 'stepchallenge-leaderboard',
   standalone: true,
   imports: [NgClass, CurveComponent, LoadingSpinnerComponent],
   templateUrl: './leaderboard.component.html',

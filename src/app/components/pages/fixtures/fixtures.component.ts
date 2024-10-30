@@ -4,7 +4,7 @@ import { FixtureComponent } from '../../reusable/fixture/fixture.component';
 import {LoadingSpinnerComponent} from "../../reusable/loading-spinner/loading-spinner.component";
 
 @Component({
-  selector: 'kickathon-fixtures',
+  selector: 'stepchallenge-fixtures',
   standalone: true,
   imports: [FixtureComponent, LoadingSpinnerComponent],
   templateUrl: './fixtures.component.html',

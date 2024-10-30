@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kickathon": {
+    "stepchallenge": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,12 +12,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "kickathon",
+      "prefix": "stepchallenge",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/kickathon",
+            "outputPath": "dist/stepchallenge",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "kickathon:build:production"
+              "buildTarget": "stepchallenge:build:production"
             },
             "development": {
-              "buildTarget": "kickathon:build:development",
+              "buildTarget": "stepchallenge:build:development",
               "proxyConfig": "src/proxy.conf.json"
             }
           },

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'kickathon-loading-spinner',
+  selector: 'stepchallenge-loading-spinner',
   standalone: true,
   imports: [],
   templateUrl: './loading-spinner.component.html',

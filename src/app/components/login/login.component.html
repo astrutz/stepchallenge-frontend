@@ -1,8 +1,8 @@
 @if (formState === 'error') {
-  <kickathon-toast
+  <stepchallenge-toast
     state="error"
     [showTimeout]="10000"
-    message="Es ist ein Fehler aufgetreten: {{ errors }}"></kickathon-toast>
+    message="Es ist ein Fehler aufgetreten: {{ errors }}"></stepchallenge-toast>
 }
 <div class="flex flex-row justify-center mt-16 min-w-sm max-w-sm mx-auto">
   <div
@@ -112,7 +112,7 @@
   </div>
 </div>
 <model-viewer
-  src="kickathon-animierter-ball.glb"
+  src="stepchallenge-animierter-ball.glb"
   alt="3D Model"
   autoplay
   animation-name="IcosphereAction"

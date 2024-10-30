@@ -28,7 +28,7 @@ import { pairwise } from 'rxjs';
 import { Player } from '../../../data/player.data';
 
 @Component({
-  selector: 'kickathon-results',
+  selector: 'stepchallenge-results',
   standalone: true,
   imports: [
     FormsModule,

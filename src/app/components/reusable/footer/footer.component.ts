@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
-  selector: 'kickathon-footer',
+  selector: 'stepchallenge-footer',
   standalone: true,
   imports: [
     RouterLink,

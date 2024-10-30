@@ -7,7 +7,7 @@ import { ToastComponent } from '../reusable/toast/toast.component';
 import { LoadingSpinnerComponent } from '../reusable/loading-spinner/loading-spinner.component';
 
 @Component({
-  selector: 'kickathon-user-profile',
+  selector: 'stepchallenge-user-profile',
   standalone: true,
   imports: [
     ReactiveFormsModule,

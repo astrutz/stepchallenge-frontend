@@ -14,7 +14,7 @@ import { NgClass } from '@angular/common';
 import { passwordEqualValidator } from '../../validators/password-confirmation.validator';
 
 @Component({
-  selector: 'kickathon-register',
+  selector: 'stepchallenge-register',
   standalone: true,
   imports: [ReactiveFormsModule, ToastComponent, NgClass],
   templateUrl: './register.component.html',

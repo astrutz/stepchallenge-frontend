@@ -4,7 +4,7 @@ import { UserService } from '../../../services/user.service';
 import { NgClass, NgOptimizedImage } from '@angular/common';
 
 @Component({
-  selector: 'kickathon-header',
+  selector: 'stepchallenge-header',
   standalone: true,
   imports: [RouterLink, NgOptimizedImage, NgClass],
   templateUrl: './header.component.html',

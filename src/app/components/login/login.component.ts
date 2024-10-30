@@ -14,7 +14,7 @@ import { NgClass } from '@angular/common';
 import { ToastComponent } from '../reusable/toast/toast.component';
 
 @Component({
-  selector: 'kickathon-login',
+  selector: 'stepchallenge-login',
   standalone: true,
   imports: [ReactiveFormsModule, NgClass, ToastComponent],
   templateUrl: './login.component.html',
