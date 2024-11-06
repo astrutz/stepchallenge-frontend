@@ -1,0 +1,9 @@
+.graphic {
+  @apply fixed h-screen w-screen top-0 left-0;
+  @apply -z-10;
+  @apply bg-contain;
+  @apply bg-no-repeat;
+  @apply bg-left-bottom;
+  @apply bg-[url('/img/background-light.svg')];
+  @apply dark:bg-[url('/img/background-dark.svg')];
+}

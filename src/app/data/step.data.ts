@@ -2,6 +2,7 @@ import { Person } from './person.data';
 
 export type Step = {
   id: number;
-  Day: Date;
+  Day: string;
   person: Person;
+  count: number;
 };

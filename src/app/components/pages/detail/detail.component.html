@@ -1,1 +1,89 @@
 <h1 class="text-2xl font-semibold text-center lg:mt-4 mt-2 mb-4 lg:mb-8">Übersicht</h1>
+@if (
+  dataService.teamsLoadingState$() === 'success' && dataService.personsLoadingState$() === 'success'
+) {
+  @if (dataService.teams$().length > 0 && dataService.persons$().length > 0) {
+    <div class="relative overflow-x-auto sm:rounded-lg dark:border-gray-700 border">
+      <table
+        class="w-full text-sm text-left shadow-md rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th
+              scope="col"
+              rowspan="2"
+              class="px-5 py-3 text-center border-gray-200 dark:border-gray-600 border-r">
+              Datum
+            </th>
+            @for (team of dataService.teams$(); track team.name) {
+              <th
+                scope="col"
+                colspan="3"
+                class="px-5 py-3 text-center border-gray-200 dark:border-gray-600 border-b border-r">
+                {{ team.name }}
+              </th>
+            }
+          </tr>
+          <tr>
+            @for (team of dataService.teams$(); track team.name) {
+              <th scope="col" class="px-5 py-3">Kürzel</th>
+              <th scope="col" class="px-5 py-3">Schritte</th>
+              <th scope="col" class="px-5 py-3 border-gray-200 dark:border-gray-600 border-r">
+                Sport
+              </th>
+            }
+          </tr>
+        </thead>
+        <tbody>
+          @for (date of dates; track date) {
+            <tr class="bg-white border-b dark:border-gray-700 dark:bg-gray-800">
+              <th class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r" rowspan="3">
+                {{ date | date }}
+              </th>
+              @for (team of dataService.teams$(); track team.name) {
+                <td
+                  class="px-5 py-3 hover:cursor-help"
+                  rowspan="1"
+                  [title]="team.persons?.[0]?.name">
+                  {{ team.persons?.[0]?.shortcut ?? '' }}
+                </td>
+                <td class="px-5 py-3">
+                  {{ (getStepsByPerson(date, team.persons?.[0]?.id) | number) ?? '' }}
+                </td>
+                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">TODO</td>
+              }
+            </tr>
+            <tr class="bg-white border-b dark:border-gray-700 dark:bg-gray-800">
+              @for (team of dataService.teams$(); track team.name) {
+                <td
+                  class="px-5 py-3 hover:cursor-help"
+                  rowspan="1"
+                  [title]="team.persons?.[1]?.name">
+                  {{ team.persons?.[1]?.shortcut ?? '' }}
+                </td>
+                <td class="px-5 py-3">
+                  {{ (getStepsByPerson(date, team.persons?.[1]?.id) | number) ?? '' }}
+                </td>
+                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">TODO</td>
+              }
+            </tr>
+            <tr class="bg-white dark:border-gray-700 dark:bg-gray-800 border-b border-b-4">
+              @for (team of dataService.teams$(); track team.name) {
+                <td
+                  class="px-5 py-3 hover:cursor-help"
+                  rowspan="1"
+                  [title]="team.persons?.[2]?.name">
+                  {{ team.persons?.[2]?.shortcut ?? '' }}
+                </td>
+                <td class="px-5 py-3">
+                  {{ (getStepsByPerson(date, team.persons?.[2]?.id) | number) ?? '' }}
+                </td>
+                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">TODO</td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+}

@@ -1,4 +1,4 @@
-import { effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { RequestService } from './request.service';
 import { Person } from '../data/person.data';
 import { Team } from '../data/team.data';
@@ -14,23 +14,16 @@ export class DataService {
   public teamsLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
   public teams$: WritableSignal<Team[]> = signal([]);
 
-  public sortType$ = signal('');
-
   private _requestService: RequestService = inject(RequestService);
   constructor() {
-    effect(() => {
-      this._requestService
-        .getPersons(this.sortType$() === '' ? undefined : this.sortType$())
-        .then((persons) => {
-          this.persons$.set(persons);
-          this.personsLoadingState$.set('success');
-        });
+    this._requestService.getPersons().then((persons) => {
+      this.persons$.set(persons);
+      this.personsLoadingState$.set('success');
     });
-    effect(() => {
-      this._requestService.getTeams().then((teams) => {
-        this.teams$.set(teams);
-        this.teamsLoadingState$.set('success');
-      });
+
+    this._requestService.getTeams().then((teams) => {
+      this.teams$.set(teams);
+      this.teamsLoadingState$.set('success');
     });
   }
 
@@ -39,16 +32,5 @@ export class DataService {
       return null;
     }
     return this.persons$().find((person) => person.id === id) ?? null;
-  }
-
-  get weekNumber(): number {
-    let now = new Date();
-    let onejan = new Date(now.getFullYear(), 0, 1);
-    let week = Math.ceil(((now.getTime() - onejan.getTime()) / 86400000 + onejan.getDay() + 1) / 7);
-    return week - 1;
-  }
-
-  get currentYear(): number {
-    return new Date().getFullYear();
   }
 }

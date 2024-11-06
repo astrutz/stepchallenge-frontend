@@ -45,13 +45,5 @@
 }
 
 .background {
-  @apply bg-contain;
-  @apply bg-no-repeat;
-  @apply bg-left-bottom;
-  @apply h-screen;
-  @apply w-screen;
   @apply bg-gray-100 dark:bg-gray-900;
-  @apply bg-[url('/img/background-light.svg')];
-  @apply dark:bg-[url('/img/background-dark.svg')];
 }
-

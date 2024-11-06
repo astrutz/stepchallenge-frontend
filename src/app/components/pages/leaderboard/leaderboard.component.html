@@ -1,24 +1,26 @@
 <h1 class="text-2xl font-semibold text-center lg:mt-4 mt-2 mb-4 lg:mb-8">Leaderboard</h1>
 
-@if (dataService.personsLoadingState$() === 'success') {
+@if (dataService.teamsLoadingState$() === 'success') {
   @if (dataService.teams$().length > 0) {
-    <div class="relative overflow-x-auto sm:rounded-lg">
+    <div class="relative overflow-x-auto sm:rounded-lg dark:border-gray-700 border border-l-0">
       <table
         class="w-full text-sm text-left shadow-md rtl:text-right text-gray-500 dark:text-gray-400">
         <thead
           class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr>
-            <th scope="col" class="px-6 py-3 w-2">Pl.</th>
-            <th scope="col" class="px-6 py-3 text-gray-900 whitespace-nowrap dark:text-white">
-              Name
-            </th>
-            <th scope="col" class="px-6 py-3 w-4">Schritte</th>
-          </tr>
+        <tr>
+          <th scope="col" class="px-6 py-3 w-2">Pl.</th>
+          <th scope="col" class="px-6 py-3 text-gray-900 whitespace-nowrap dark:text-white">
+            Name
+          </th>
+          <th scope="col" class="px-6 py-3 w-4">Schritte</th>
+        </tr>
         </thead>
         <tbody>
           @for (team of dataService.teams$(); track $index) {
             <tr
-              class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+              [ngClass]="{'border-b-0': $index === (dataService.teams$().length - 1)}"
+            >
               <th
                 scope="row"
                 class="px-6 py-4 border-l-4"
@@ -34,6 +36,7 @@
                   'border-l-babiel-red-400': team.color === 'red',
                   'border-l-babiel-yellow-400': team.color === 'yellow',
                   'border-l-babiel-gray-300': team.color === 'gray',
+
                 }">
                 {{ $index + 1 }}
               </th>
@@ -57,7 +60,7 @@
         fill="currentColor"
         viewBox="0 0 20 20">
         <path
-          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
       </svg>
       <div>Keine Spieler vorhanden. Lege Spieler an und komme dann zurück.</div>
     </div>
