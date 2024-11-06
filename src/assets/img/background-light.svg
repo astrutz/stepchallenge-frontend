@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Masc" width="1920" height="1080" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="babiel_Look" data-name="babiel Look" clip-path="url(#clip-path)">
+    <path id="b" d="M895,3136.468c-293.055,0-495.021-15.84-895-63.362V0H522.747V895C685.112,815.8,875.2,788.078,1045.488,788.078c617.789,0,902.922,312.86,902.922,990.046v308.9C1948.409,2839.45,1591.995,3136.468,895,3136.468Zm530.657-1362.305c0-403.936-114.84-542.541-447.494-542.541-99.005,0-320.773,15.833-459.377,83.163V2673.124c87.122,3.96,221.766,15.84,384.131,15.84,364.344,0,522.739-134.645,522.739-601.943Z" transform="translate(1148.896 3450.588) rotate(-169)" fill="#e5e7eb" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>
