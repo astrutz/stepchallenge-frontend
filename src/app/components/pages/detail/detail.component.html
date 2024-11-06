@@ -19,7 +19,20 @@
               <th
                 scope="col"
                 colspan="3"
-                class="px-5 py-3 text-center border-gray-200 dark:border-gray-600 border-b border-r">
+                [ngClass]="{
+                  'bg-babiel-turquoise-400': team.color === '7',
+                  'bg-babiel-purple-400 !text-white': team.color === '9',
+                  'bg-babiel-orange-400': team.color === '3',
+                  'bg-babiel-green-400': team.color === '10',
+                  'bg-babiel-magenta-400': team.color === '1',
+                  'bg-babiel-amber-400': team.color === '4',
+                  'bg-babiel-petrol-400 !text-white': team.color === '8',
+                  'bg-babiel-apple-400': team.color === '6',
+                  'bg-babiel-red-400': team.color === '2',
+                  'bg-babiel-yellow-400': team.color === '5',
+                  'bg-babiel-gray-300': team.color === '11',
+                }"
+                class="px-5 py-3 text-center border-gray-200 dark:border-gray-600 border-b border-r text-black">
                 {{ team.name }}
               </th>
             }
@@ -50,7 +63,9 @@
                 <td class="px-5 py-3">
                   {{ (getStepsByPerson(date, team.persons?.[0]?.id) | number) ?? '' }}
                 </td>
-                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">TODO</td>
+                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">
+                  {{ (getSportByPerson(date, team.persons?.[0]?.id) | number) ?? '' }}
+                </td>
               }
             </tr>
             <tr class="bg-white border-b dark:border-gray-700 dark:bg-gray-800">
@@ -64,7 +79,9 @@
                 <td class="px-5 py-3">
                   {{ (getStepsByPerson(date, team.persons?.[1]?.id) | number) ?? '' }}
                 </td>
-                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">TODO</td>
+                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">
+                  {{ (getSportByPerson(date, team.persons?.[1]?.id) | number) ?? '' }}
+                </td>
               }
             </tr>
             <tr class="bg-white dark:border-gray-700 dark:bg-gray-800 border-b border-b-4">
@@ -78,7 +95,9 @@
                 <td class="px-5 py-3">
                   {{ (getStepsByPerson(date, team.persons?.[2]?.id) | number) ?? '' }}
                 </td>
-                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">TODO</td>
+                <td class="px-5 py-3 border-gray-200 dark:border-gray-700 border-r">
+                  {{ (getSportByPerson(date, team.persons?.[2]?.id) | number) ?? '' }}
+                </td>
               }
             </tr>
           }

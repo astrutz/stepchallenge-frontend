@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { DataService } from '../../../services/data.service';
-import {DatePipe, DecimalPipe} from '@angular/common';
+import {DatePipe, DecimalPipe, NgClass} from '@angular/common';
 
 @Component({
   selector: 'stepchallenge-detail',
   standalone: true,
-  imports: [DatePipe, DecimalPipe],
+  imports: [DatePipe, DecimalPipe, NgClass],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
 })
@@ -21,6 +21,17 @@ export class DetailComponent {
       return step.Day.toString().includes(day);
     });
     return step?.count ?? null;
+  }
+
+  getSportByPerson(day: string, id?: number): number | null {
+    if (!id) {
+      return null;
+    }
+    const person = this.dataService.getPersonById(id)!;
+    const step = person.steps.find((step) => {
+      return step.Day.toString().includes(day);
+    });
+    return step?.sport ?? null;
   }
 
   dates = [

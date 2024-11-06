@@ -5,4 +5,5 @@ export type Step = {
   Day: string;
   person: Person;
   count: number;
+  sport?: number;
 };

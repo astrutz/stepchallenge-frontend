@@ -1,9 +1,11 @@
-import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { computed, inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { RequestService } from './request.service';
 import { Person } from '../data/person.data';
 import { Team } from '../data/team.data';
 
+// TODO
 // Heading in babiel Schrift wie Megamarsch
+// Eingetragen in Prozent wieviel schon
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +15,7 @@ export class DataService {
   public persons$: WritableSignal<Person[]> = signal([]);
   public teamsLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
   public teams$: WritableSignal<Team[]> = signal([]);
+  public leaderboard$ = computed(() => this.teams$().sort((a, b) => b.score - a.score));
 
   private _requestService: RequestService = inject(RequestService);
   constructor() {

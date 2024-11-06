@@ -1,7 +1,7 @@
 <h1 class="text-2xl font-semibold text-center lg:mt-4 mt-2 mb-4 lg:mb-8">Leaderboard</h1>
 
 @if (dataService.teamsLoadingState$() === 'success') {
-  @if (dataService.teams$().length > 0) {
+  @if (dataService.leaderboard$().length > 0) {
     <div class="relative overflow-x-auto sm:rounded-lg dark:border-gray-700 border border-l-0">
       <table
         class="w-full text-sm text-left shadow-md rtl:text-right text-gray-500 dark:text-gray-400">
@@ -16,27 +16,26 @@
         </tr>
         </thead>
         <tbody>
-          @for (team of dataService.teams$(); track $index) {
+          @for (team of dataService.leaderboard$(); track $index) {
             <tr
               class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-              [ngClass]="{'border-b-0': $index === (dataService.teams$().length - 1)}"
+              [ngClass]="{'border-b-0': $index === (dataService.leaderboard$().length - 1)}"
             >
               <th
                 scope="row"
                 class="px-6 py-4 border-l-4"
                 [ngClass]="{
-                  'border-l-babiel-turquoise-400': team.color === 'turquoise',
-                  'border-l-babiel-purple-400': team.color === 'purple',
-                  'border-l-babiel-orange-400': team.color === 'orange',
-                  'border-l-babiel-green-400': team.color === 'green',
-                  'border-l-babiel-magenta-400': team.color === 'magenta',
-                  'border-l-babiel-amber-400': team.color === 'amber',
-                  'border-l-babiel-petrol-400': team.color === 'petrol',
-                  'border-l-babiel-apple-400': team.color === 'apple',
-                  'border-l-babiel-red-400': team.color === 'red',
-                  'border-l-babiel-yellow-400': team.color === 'yellow',
-                  'border-l-babiel-gray-300': team.color === 'gray',
-
+                  'border-l-babiel-turquoise-400': team.color === '7',
+                  'border-l-babiel-purple-400': team.color === '9',
+                  'border-l-babiel-orange-400': team.color === '3',
+                  'border-l-babiel-green-400': team.color === '10',
+                  'border-l-babiel-magenta-400': team.color === '1',
+                  'border-l-babiel-amber-400': team.color === '4',
+                  'border-l-babiel-petrol-400': team.color === '8',
+                  'border-l-babiel-apple-400': team.color === '6',
+                  'border-l-babiel-red-400': team.color === '2',
+                  'border-l-babiel-yellow-400': team.color === '5',
+                  'border-l-babiel-gray-300': team.color === '11',
                 }">
                 {{ $index + 1 }}
               </th>
