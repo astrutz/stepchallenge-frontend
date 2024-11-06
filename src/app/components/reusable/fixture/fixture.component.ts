@@ -18,27 +18,27 @@ export class FixtureComponent {
   get player1(): string {
     if (this.is1v1A) {
       return (
-        this.dataService.getPlayerById(this.game.team1Players?.[0])?.name ??
+        this.dataService.getPersonById(this.game.team1Players?.[0])?.name ??
         '[Deaktivierter Nutzer]'
       );
     }
-    if(!this.dataService.getPlayerById(this.game.team1Players?.[0])?.name) {
+    if(!this.dataService.getPersonById(this.game.team1Players?.[0])?.name) {
       return '[Deaktivierter Nutzer]';
     }
-    return `${this.dataService.getPlayerById(this.game.team1Players?.[0])?.name ?? '[Deaktivierter Nutzer]'} & ${this.dataService.getPlayerById(this.game.team1Players?.[1])?.name ?? '[Deaktivierter Nutzer]'}`;
+    return `${this.dataService.getPersonById(this.game.team1Players?.[0])?.name ?? '[Deaktivierter Nutzer]'} & ${this.dataService.getPersonById(this.game.team1Players?.[1])?.name ?? '[Deaktivierter Nutzer]'}`;
   }
 
   get player2(): string {
     if (this.is1v1B) {
       return (
-        this.dataService.getPlayerById(this.game.team2Players?.[0])?.name ??
+        this.dataService.getPersonById(this.game.team2Players?.[0])?.name ??
         '[Deaktivierter Nutzer]'
       );
     }
-    if(!this.dataService.getPlayerById(this.game.team2Players?.[0])?.name) {
+    if(!this.dataService.getPersonById(this.game.team2Players?.[0])?.name) {
       return '[Deaktivierter Nutzer]';
     }
-    return `${this.dataService.getPlayerById(this.game.team2Players?.[0])?.name ?? '[Deaktivierter Nutzer]'} & ${this.dataService.getPlayerById(this.game.team2Players?.[1])?.name ?? '[Deaktivierter Nutzer]'}`;
+    return `${this.dataService.getPersonById(this.game.team2Players?.[0])?.name ?? '[Deaktivierter Nutzer]'} & ${this.dataService.getPersonById(this.game.team2Players?.[1])?.name ?? '[Deaktivierter Nutzer]'}`;
   }
 
   get is1v1A(): boolean {
@@ -50,16 +50,16 @@ export class FixtureComponent {
   }
 
   get pictureByIdA(): string | null {
-    if (this.is1v1A) {
-      return this.dataService.getPlayerById(this.game.team1Players?.[0])?.imageUrl ?? null;
-    }
+    // if (this.is1v1A) {
+    //   return this.dataService.getPersonById(this.game.team1Players?.[0])?.imageUrl ?? null;
+    // }
     return null;
   }
 
   get pictureByIdB(): string | null {
-    if (this.is1v1B) {
-      return this.dataService.getPlayerById(this.game.team2Players?.[0])?.imageUrl ?? null;
-    }
+    // if (this.is1v1B) {
+    //   return this.dataService.getPersonById(this.game.team2Players?.[0])?.imageUrl ?? null;
+    // }
     return null;
   }
 }

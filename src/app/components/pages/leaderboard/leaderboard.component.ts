@@ -3,20 +3,17 @@ import { DataService } from '../../../services/data.service';
 import { NgClass } from '@angular/common';
 import { Player } from '../../../data/player.data';
 import { Game } from '../../../data/game.data';
-import { CurveComponent } from '../../reusable/curve/curve.component';
 import { LoadingSpinnerComponent } from '../../reusable/loading-spinner/loading-spinner.component';
-import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'stepchallenge-leaderboard',
   standalone: true,
-  imports: [NgClass, CurveComponent, LoadingSpinnerComponent],
+  imports: [NgClass, LoadingSpinnerComponent],
   templateUrl: './leaderboard.component.html',
   styleUrl: './leaderboard.component.scss',
 })
 export class LeaderboardComponent {
   protected dataService: DataService = inject(DataService);
-  protected userService: UserService = inject(UserService);
   currentView: string = 'default';
 
   getGoals(player: Player): string {

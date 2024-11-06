@@ -4,20 +4,23 @@ import { Game } from '../data/game.data';
 import { RequestService } from './request.service';
 import { PlayerHistory } from '../data/history.data';
 import { sign } from 'chart.js/helpers';
+import { Person } from '../data/person.data';
+import { Team } from '../data/team.data';
 
-export type APIData<T> = {
-  data: T;
-  loadingState: 'loading' | 'success';
-};
+// Striche für Top 3 breiter
+// Babiel Hintergrund lila mit Schleife im Header
+// Über die ganze Seite sonst die Form
+// Heading in babiel Schrift wie Megamarsch
+// Mehr Abstand bei Legende der Formkurve, keine Kästchen sondern nur Punkte
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  public playersLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
-  public players$: WritableSignal<Player[]> = signal([]);
-  public gamesLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
-  public games$: WritableSignal<Game[]> = signal([]);
+  public personsLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
+  public persons$: WritableSignal<Person[]> = signal([]);
+  public teamsLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
+  public teams$: WritableSignal<Team[]> = signal([]);
   public historyLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
   public history$: WritableSignal<PlayerHistory[]> = signal([]);
 
@@ -29,47 +32,25 @@ export class DataService {
   constructor() {
     effect(() => {
       this._requestService
-        .getPlayers(this.sortType$() === '' ? undefined : this.sortType$())
-        .then((players) => {
-          this.players$.set(players);
-          this.playersLoadingState$.set('success');
-          if (this.historyLoadingState$() === 'loading') {
-            this.loadPlayerHistory();
-          }
+        .getPersons(this.sortType$() === '' ? undefined : this.sortType$())
+        .then((persons) => {
+          this.persons$.set(persons);
+          this.personsLoadingState$.set('success');
         });
     });
     effect(() => {
-      this._requestService.getGames(this.calendarWeek$(), this.calendarYear$()).then((games) => {
-        this.games$.set(games);
-        this.gamesLoadingState$.set('success');
+      this._requestService.getTeams().then((teams) => {
+        this.teams$.set(teams);
+        this.teamsLoadingState$.set('success');
       });
     });
   }
 
-  public getPlayerById(id?: number): Player | null {
-    if(!id) {
+  public getPersonById(id?: number): Person | null {
+    if (!id) {
       return null;
     }
-    return this.players$().find((player) => player.id === id) ?? null;
-  }
-
-  public loadPlayerHistory() {
-    this.historyLoadingState$.set('loading');
-    this.history$.set([]);
-    let loaded = 0;
-    this.players$().forEach((player) => {
-      this._requestService.getHistory(player.id).then((history) => {
-        this.history$.update((oldHistory) => {
-          loaded++;
-          oldHistory.push({ name: player.name, history });
-          if (loaded === this.players$().length) {
-            this.historyLoadingState$.set('success');
-            return oldHistory;
-          }
-          return oldHistory;
-        });
-      });
-    });
+    return this.persons$().find((person) => person.id === id) ?? null;
   }
 
   get weekNumber(): number {

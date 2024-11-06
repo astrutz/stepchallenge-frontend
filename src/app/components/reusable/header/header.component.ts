@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import { UserService } from '../../../services/user.service';
 import { NgClass, NgOptimizedImage } from '@angular/common';
 
 @Component({
@@ -11,10 +10,5 @@ import { NgClass, NgOptimizedImage } from '@angular/common';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  userService: UserService = inject(UserService);
   router: Router = inject(Router);
-
-  onLogout(): void {
-    this.userService.logout();
-  }
 }
