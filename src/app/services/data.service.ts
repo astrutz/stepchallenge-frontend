@@ -1,15 +1,10 @@
 import { effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
-import { Player } from '../data/player.data';
-import { Game } from '../data/game.data';
 import { RequestService } from './request.service';
-import { PlayerHistory } from '../data/history.data';
-import { sign } from 'chart.js/helpers';
 import { Person } from '../data/person.data';
 import { Team } from '../data/team.data';
 
 // Striche für Top 3 breiter
 // Babiel Hintergrund lila mit Schleife im Header
-// Über die ganze Seite sonst die Form
 // Heading in babiel Schrift wie Megamarsch
 // Mehr Abstand bei Legende der Formkurve, keine Kästchen sondern nur Punkte
 
@@ -21,12 +16,8 @@ export class DataService {
   public persons$: WritableSignal<Person[]> = signal([]);
   public teamsLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
   public teams$: WritableSignal<Team[]> = signal([]);
-  public historyLoadingState$: WritableSignal<'loading' | 'success'> = signal('loading');
-  public history$: WritableSignal<PlayerHistory[]> = signal([]);
 
   public sortType$ = signal('');
-  public calendarWeek$ = signal(this.weekNumber);
-  public calendarYear$ = signal(this.currentYear);
 
   private _requestService: RequestService = inject(RequestService);
   constructor() {

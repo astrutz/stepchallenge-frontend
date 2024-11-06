@@ -1,10 +1,6 @@
 import { Injectable, isDevMode } from '@angular/core';
 import axios from 'axios';
-import { Game } from '../data/game.data';
-import { RegisterData } from '../data/register.data';
-import { UpdateProfileData } from '../data/updateprofile.data';
 import { Person } from '../data/person.data';
-import { PlayerHistoryEntry } from '../data/history.data';
 import {Team} from "../data/team.data";
 
 @Injectable({
@@ -54,21 +50,5 @@ export class RequestService {
 
   async deleteTeam(id: string): Promise<void> {
     await axios.delete(`${this.host}/teams/${id}`);
-  }
-
-  async login(data: any): Promise<{ jwt: string; id: number }> {
-    return (await axios.post(`${this.host}/auth/login`, data)).data;
-  }
-
-  async register(data: RegisterData): Promise<{ jwt: string; id: number }> {
-    return (await axios.post(`${this.host}/auth/register`, data)).data;
-  }
-
-  async uploadPicture(formData: FormData, personId: number): Promise<string> {
-    return (await axios.patch(`${this.host}/persons/${personId}/image`, formData)).data;
-  }
-
-  async patchName(data: UpdateProfileData, personId: number): Promise<string> {
-    return (await axios.patch(`${this.host}/persons/${personId}/name`, data)).data;
   }
 }
