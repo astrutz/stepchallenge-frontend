@@ -11,14 +11,6 @@ module.exports = {
         gold: '#DAA520',
         silver: '#A9A9A9',
         bronze: '#CD7F32',
-        primary: {
-          100: '#8fb578',
-          200: '#68a161',
-          300: '#659f5e',
-          400: '#2d7948',
-          500: '#2e4f2e',
-          600: '#013020',
-        },
         babiel: {
           black: {
             100: '#999999',

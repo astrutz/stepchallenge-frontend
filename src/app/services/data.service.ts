@@ -3,10 +3,7 @@ import { RequestService } from './request.service';
 import { Person } from '../data/person.data';
 import { Team } from '../data/team.data';
 
-// Striche für Top 3 breiter
-// Babiel Hintergrund lila mit Schleife im Header
 // Heading in babiel Schrift wie Megamarsch
-// Mehr Abstand bei Legende der Formkurve, keine Kästchen sondern nur Punkte
 
 @Injectable({
   providedIn: 'root',

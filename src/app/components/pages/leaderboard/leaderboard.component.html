@@ -21,19 +21,26 @@
               class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
               <th
                 scope="row"
-                class="px-6 py-4"
+                class="px-6 py-4 border-l-4"
                 [ngClass]="{
-                  'border-l-4': $index < 3,
-                  'border-l-gold': $index === 0,
-                  'border-l-silver': $index === 1,
-                  'border-l-bronze': $index === 2,
+                  'border-l-babiel-turquoise-400': team.color === 'turquoise',
+                  'border-l-babiel-purple-400': team.color === 'purple',
+                  'border-l-babiel-orange-400': team.color === 'orange',
+                  'border-l-babiel-green-400': team.color === 'green',
+                  'border-l-babiel-magenta-400': team.color === 'magenta',
+                  'border-l-babiel-amber-400': team.color === 'amber',
+                  'border-l-babiel-petrol-400': team.color === 'petrol',
+                  'border-l-babiel-apple-400': team.color === 'apple',
+                  'border-l-babiel-red-400': team.color === 'red',
+                  'border-l-babiel-yellow-400': team.color === 'yellow',
+                  'border-l-babiel-gray-300': team.color === 'gray',
                 }">
                 {{ $index + 1 }}
               </th>
               <td class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                 {{ team.name }}
               </td>
-              <td class="px-6 py-4">{{ team.score }}</td>
+              <td class="px-6 py-4">{{ team.score | number: undefined }}</td>
             </tr>
           }
         </tbody>
